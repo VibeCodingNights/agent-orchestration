@@ -1,6 +1,6 @@
 # Agent orchestration
 
-Your agents work alone. Even when there are five of them.
+The coordination problems are fifty years old. The frameworks are new.
 
 ---
 
@@ -8,7 +8,7 @@ You can spawn a team now. Team lead, three workers, shared task list. It looks l
 
 Then one agent rewrites a file another agent is reading. A third agent gives confident advice based on a hallucination from the first. The "team lead" spends 30% of its tokens just routing — not thinking. You add a fourth worker and everything gets *slower*.
 
-These aren't bugs in the framework. They're the fundamental problems of distributed systems, consensus, and coordination that computer scientists have been working on for fifty years. The frameworks give you plumbing. The hard problems are underneath.
+These aren't bugs in the framework. The frameworks give you plumbing. The hard problems are underneath.
 
 ---
 
