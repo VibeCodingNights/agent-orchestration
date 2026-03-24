@@ -10,9 +10,9 @@ but what if you could skip the text?
 
 ---
 
-## Cache-to-Cache (C2C)
+## cache-to-cache (C2C)
 
-a paper from October 2025, updated March 2026. the idea: a neural network projects and fuses one model's KV-cache with another model's KV-cache. no tokenization step. no parsing step. direct semantic transfer.
+a paper from october 2025, updated march 2026. the idea: a neural network projects and fuses one model's KV-cache with another model's KV-cache. no tokenization step. no parsing step. direct semantic transfer.
 
 the results:
 - 6-14% higher average accuracy than individual models
@@ -30,7 +30,7 @@ the implication: text is not just a slow channel. it's a *lossy* channel. models
 
 a separate line of work: augment a frozen LLM with an offline coprocessor that operates on its KV-cache. the coprocessor adds latent embeddings designed to improve subsequent decoding. trained using the language modeling loss from the decoder on standard pretraining data, while keeping the decoder frozen.
 
-this is essentially System 1 / System 2 for language models. the base model does fast association (System 1). the coprocessor does slow deliberation (System 2). they communicate through cache, not text. the coprocessor can operate offline and asynchronously — the language model works normally if the coprocessor is unavailable.
+this is essentially system 1 / system 2 for language models. the base model does fast association (system 1). the coprocessor does slow deliberation (system 2). they communicate through cache, not text. the coprocessor can operate offline and asynchronously — the language model works normally if the coprocessor is unavailable.
 
 neuroscience evidence points to partially distinct substrates for deliberative control and habitual responses. the coprocessor architecture mirrors this separation.
 

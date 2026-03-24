@@ -38,7 +38,7 @@ the load-bearing concepts. each one grounded in where the research actually is.
 hands-on. pick one, build something, break something.
 
 - **[peer-to-peer](exercises/peer-to-peer.md)** — claude-peers-mcp. two sessions, no hierarchy, just messages.
-- **[supervise a team](exercises/supervise-a-team.md)** — pentagon.run or Agent Teams. assign roles, watch the canvas, feel the overhead.
+- **[supervise a team](exercises/supervise-a-team.md)** — pentagon.run or agent teams. assign roles, watch the canvas, feel the overhead.
 - **[spawn a swarm](exercises/spawn-a-swarm.md)** — MiroShark. feed it a document, watch hundreds of agents argue their way to consensus.
 
 ## provocations

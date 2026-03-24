@@ -14,7 +14,7 @@ this is the oldest problem in distributed systems. and agent frameworks have bar
 
 ## the computer architecture parallel
 
-a March 2026 paper from arxiv frames multi-agent memory explicitly as a computer architecture problem. the observation is sharp: performance and scalability in computer systems are often limited not by compute but by memory hierarchy, bandwidth, and consistency. the same is true for multi-agent LLM systems.
+a march 2026 paper from arXiv frames multi-agent memory explicitly as a computer architecture problem. the observation is sharp: performance and scalability in computer systems are often limited not by compute but by memory hierarchy, bandwidth, and consistency. the same is true for multi-agent LLM systems.
 
 in computer architecture, consistency models specify which updates are visible to a read and in what order concurrent updates may be observed:
 
@@ -50,7 +50,7 @@ the biggest gap in current research: there's no standard "agent memory access pr
 - when agent A writes to shared memory, when does agent B see it?
 - what happens when two agents write conflicting information simultaneously?
 
-Collaborative Memory (a May 2025 paper) proposes two tiers: private fragments visible only to their originating user, and shared fragments selectively accessible. each fragment carries immutable provenance — contributing agents, accessed resources, timestamps — to support retrospective permission checks.
+collaborative memory (a may 2025 paper) proposes two tiers: private fragments visible only to their originating user, and shared fragments selectively accessible. each fragment carries immutable provenance — contributing agents, accessed resources, timestamps — to support retrospective permission checks.
 
 this is the beginning of an answer. but it's still research, not infrastructure.
 

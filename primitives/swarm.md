@@ -34,7 +34,7 @@ MiroShark handles this with simulation cycles — a fixed number of interaction 
 
 ## MiroFish / MiroShark: swarm intelligence at scale
 
-a 20-year-old student built MiroFish in ten days via vibe coding. it's built on OASIS (Open Agent Social Interaction Simulations) from CAMEL-AI — a framework that can scale to one million agents with 23 different social actions: following, commenting, reposting, liking, muting, searching.
+a 20-year-old student built MiroFish in ten days via vibe coding. it's built on OASIS (open agent social interaction simulations) from CAMEL-AI — a framework that can scale to one million agents with 23 different social actions: following, commenting, reposting, liking, muting, searching.
 
 the process:
 1. feed it a source document — news, financial report, policy draft, even a novel

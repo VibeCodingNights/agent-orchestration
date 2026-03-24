@@ -48,7 +48,7 @@ with context isolation (each worker in its own context window), token usage is *
 tonight, run the same task three ways and measure:
 
 1. **single agent** — one Claude Code session, vanilla
-2. **supervised team** — Agent Teams, 3 workers
+2. **supervised team** — agent teams, 3 workers
 3. **peer-to-peer** — claude-peers-mcp, 2 sessions
 
 for each, record:

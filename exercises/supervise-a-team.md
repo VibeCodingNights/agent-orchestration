@@ -1,10 +1,10 @@
 # supervise a team
 
-pentagon.run or Claude Code Agent Teams. assign roles, watch the canvas, feel the overhead.
+pentagon.run or Claude Code agent teams. assign roles, watch the canvas, feel the overhead.
 
 ---
 
-## option A: pentagon.run
+## option a: pentagon.run
 
 pentagon is a native macOS app. spatial canvas. every agent has a desk.
 
@@ -16,11 +16,11 @@ the key abstraction is file-based identity:
 
 configure once — every session starts with full context. "Atlas handles the backend. Scout owns the frontend. They know their boundaries."
 
-pentagon is coming soon (native macOS, not yet released as of March 2026). if you can't run it tonight, use option B.
+pentagon is coming soon (native macOS, not yet released as of march 2026). if you can't run it tonight, use option b.
 
-## option B: Claude Code Agent Teams
+## option b: Claude Code agent teams
 
-Agent Teams is built into Claude Code. experimental, disabled by default.
+agent teams is built into Claude Code. experimental, disabled by default.
 
 ```bash
 # enable
@@ -59,7 +59,7 @@ run the same task three ways:
 |----------|-------|----------------|
 | single agent | one Claude Code session | time, tokens, quality |
 | peers (claude-peers-mcp) | two sessions, no hierarchy | time, tokens, quality, coordination behavior |
-| supervised (Agent Teams) | team lead + 3 workers | time, tokens, quality, coordination overhead |
+| supervised (agent teams) | team lead + 3 workers | time, tokens, quality, coordination overhead |
 
 the comparison is the exercise. there's no right answer — different tasks favor different patterns. the point is building intuition for when each one helps.
 

@@ -19,11 +19,11 @@ the information loss at steps 2 and 4 is enormous. it's like two humans who thin
 
 three layers are consolidating, all now under the Linux Foundation's Agentic AI Foundation:
 
-**MCP (Model Context Protocol)** — agent-to-tool. how an agent connects to external data, APIs, services. Anthropic created it, donated it in December 2025. 97 million monthly SDK downloads by February 2026. this is plumbing. important plumbing, but plumbing.
+**MCP (model context protocol)** — agent-to-tool. how an agent connects to external data, APIs, services. Anthropic created it, donated it in december 2025. 97 million monthly SDK downloads by february 2026. this is plumbing. important plumbing, but plumbing.
 
-**A2A (Agent-to-Agent Protocol)** — agent-to-agent. Google created it, 50+ enterprise partners. agents discover each other's capabilities via Agent Cards (JSON metadata), negotiate responsibilities, maintain context across extended interactions. this is the coordination layer on top of MCP.
+**A2A (agent-to-agent protocol)** — agent-to-agent. Google created it, 50+ enterprise partners. agents discover each other's capabilities via agent cards (JSON metadata), negotiate responsibilities, maintain context across extended interactions. this is the coordination layer on top of MCP.
 
-**ACP (Agent Communication Protocol)** — the emerging federated layer. decentralized identity, semantic intent mapping, automated service-level agreements. this is the "TCP/IP of the agentic web" — still early, still academic, but the shape of what's coming.
+**ACP (agent communication protocol)** — the emerging federated layer. decentralized identity, semantic intent mapping, automated service-level agreements. this is the "TCP/IP of the agentic web" — still early, still academic, but the shape of what's coming.
 
 claude-peers-mcp is simpler than all of these. a broker daemon on localhost:7899, a SQLite database, and the claude/channel protocol for pushing inbound messages. no capability discovery. no agent cards. just: "hey, what are you working on?" and the other session responds immediately. sometimes simple is right.
 
@@ -33,13 +33,13 @@ claude-peers-mcp is simpler than all of these. a broker daemon on localhost:7899
 
 the most genuinely frontier work in agent communication isn't about better protocols. it's about bypassing text entirely.
 
-**Cache-to-Cache (C2C)** — a neural network projects and fuses one model's KV-cache with another model's KV-cache. direct semantic transfer. no tokenization, no parsing, no information loss from the discrete bottleneck. results: 6-14% higher accuracy than individual models, 3-5% better than text communication, 2.5x speedup in latency. works across different model families and sizes.
+**cache-to-cache (C2C)** — a neural network projects and fuses one model's KV-cache with another model's KV-cache. direct semantic transfer. no tokenization, no parsing, no information loss from the discrete bottleneck. results: 6-14% higher accuracy than individual models, 3-5% better than text communication, 2.5x speedup in latency. works across different model families and sizes.
 
 why this matters: KV-cache is a naturally richer representation than text. it enables fully parallel communication through direct projection, avoiding slow sequential decoding. oracle experiments show that enriching KV-cache under the same context length leads to increased accuracy, that KV-cache is convertible between LLMs, and that different LLMs encode distinct semantic understandings of the same input.
 
 **LatentMAS** — layer-wise KV-cache concatenation so agents share "working memory" as internal representations, not decoded tokens. unlike existing cache-sharing methods that only exchange information on prefilled input context, LatentMAS encapsulates both the initial input context and the newly generated latent thoughts of an agent.
 
-**KV-cache Coprocessor** — a frozen LLM augmented with an offline coprocessor that operates on the model's key-value cache. the coprocessor augments the cache with latent embeddings designed to improve subsequent decoding. essentially a System 1/System 2 architecture: the base model does fast association, the coprocessor does slow deliberation, and they communicate through cache, not text.
+**KV-cache coprocessor** — a frozen LLM augmented with an offline coprocessor that operates on the model's key-value cache. the coprocessor augments the cache with latent embeddings designed to improve subsequent decoding. essentially a system 1/system 2 architecture: the base model does fast association, the coprocessor does slow deliberation, and they communicate through cache, not text.
 
 ---
 

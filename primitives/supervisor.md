@@ -6,7 +6,7 @@ one agent to rule them all.
 
 the supervisor pattern is the most natural thing in the world. you have a complex task. you break it into pieces. you assign each piece to a specialist. you collect the results. synthesize. done.
 
-this is how Claude Code Agent Teams works. a team lead coordinates via a shared task list. teammates claim tasks, work in isolated git worktrees, message each other through an inbox. the lead doesn't do the work — it *orchestrates* the work.
+this is how Claude Code agent teams works. a team lead coordinates via a shared task list. teammates claim tasks, work in isolated git worktrees, message each other through an inbox. the lead doesn't do the work — it *orchestrates* the work.
 
 pentagon.run makes this spatial and visible. SOUL.md defines who the agent is. HEARTBEAT.md keeps it alive. TASKS.md tells it what to do. MEMORY.md lets it remember. every agent has a desk on a canvas. you see who's active, who's stalled, who's idle. no terminal tabs. one screen, complete awareness.
 
@@ -57,7 +57,7 @@ Lead Agent
     └── skills: code-review, test-writing
 ```
 
-Claude Code Agent Teams:
+Claude Code agent teams:
 ```bash
 export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1
 ```
