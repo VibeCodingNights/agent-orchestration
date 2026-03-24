@@ -1,6 +1,6 @@
 # Agent orchestration
 
-The coordination problems are fifty years old. The frameworks are new.
+Spawn a team. Feel the overhead.
 
 ---
 
