@@ -1,10 +1,10 @@
-# peer-to-peer
+# Peer-to-peer
 
-set up claude-peers-mcp. two Claude Code sessions, no hierarchy, just messages.
+Set up claude-peers-mcp. Two Claude Code sessions, no hierarchy, just messages.
 
 ---
 
-## setup
+## Setup
 
 ```bash
 # clone
@@ -16,7 +16,7 @@ bun install
 claude mcp add --scope user --transport stdio claude-peers -- bun ~/claude-peers-mcp/server.ts
 ```
 
-start two Claude Code sessions with development channels enabled:
+Start two Claude Code sessions with development channels enabled:
 
 ```bash
 # terminal 1
@@ -26,14 +26,14 @@ claude --dangerously-skip-permissions --dangerously-load-development-channels se
 claude --dangerously-skip-permissions --dangerously-load-development-channels server:claude-peers
 ```
 
-tip: alias it so you don't type that every time:
+Tip: alias it so you don't type that every time:
 ```bash
 alias claudepeers='claude --dangerously-load-development-channels server:claude-peers'
 ```
 
-## how it works
+## How it works
 
-a broker daemon runs on localhost:7899 with a SQLite database. each session spawns an MCP server that registers with the broker and polls for messages every second. inbound messages are pushed via the claude/channel protocol — Claude sees them immediately.
+A broker daemon runs on localhost:7899 with a SQLite database. Each session spawns an MCP server that registers with the broker and polls for messages every second. Inbound messages are pushed via the claude/channel protocol — Claude sees them immediately.
 
 ```
 ┌───────────────────────────┐
@@ -47,17 +47,17 @@ a broker daemon runs on localhost:7899 with a SQLite database. each session spaw
    Claude A         Claude B
 ```
 
-broker auto-launches when the first session starts. cleans up dead peers automatically. everything is localhost-only.
+Broker auto-launches when the first session starts. Cleans up dead peers automatically. Everything is localhost-only.
 
-## what to try
+## What to try
 
-**round 1: discovery.** in either session, ask: "who else is running?" or "list my peers." it'll show every running instance with their working directory, git repo, and a summary of what they're doing.
+**Round 1: Discovery.** In either session, ask: "who else is running?" or "list my peers." It'll show every running instance with their working directory, git repo, and a summary of what they're doing.
 
-**round 2: ad-hoc coordination.** give both agents tasks on the same codebase but different modules. then tell one: "message your peer and ask what they're working on." watch what happens when they discover overlapping concerns.
+**Round 2: Ad-hoc coordination.** Give both agents tasks on the same codebase but different modules. Then tell one: "message your peer and ask what they're working on." Watch what happens when they discover overlapping concerns.
 
-**round 3: deliberate conflict.** give both agents a task that touches the same file. don't tell them about each other. see if they discover the conflict through messaging, or if they just step on each other.
+**Round 3: Deliberate conflict.** Give both agents a task that touches the same file. Don't tell them about each other. See if they discover the conflict through messaging, or if they just step on each other.
 
-**round 4: emergent division of labor.** give both agents the same high-level goal (e.g., "improve the test coverage of this project"). don't assign specific files. tell each one to coordinate with its peers. watch how they divide the work — or don't.
+**Round 4: Emergent division of labor.** Give both agents the same high-level goal (e.g., "improve the test coverage of this project"). Don't assign specific files. Tell each one to coordinate with its peers. Watch how they divide the work — or don't.
 
 ## CLI tools
 
@@ -69,13 +69,13 @@ bun cli.ts send <id> <msg>  # send a message into a Claude session
 bun cli.ts kill-broker   # stop the broker
 ```
 
-## what to notice
+## What to notice
 
-- how quickly do the agents establish a division of labor?
-- do they develop any conventions or shorthand?
-- what happens when they disagree?
-- how much of their communication is content vs. meta-coordination?
-- compare this to the supervised version in the next exercise
+- How quickly do the agents establish a division of labor?
+- Do they develop any conventions or shorthand?
+- What happens when they disagree?
+- How much of their communication is content vs. meta-coordination?
+- Compare this to the supervised version in the next exercise
 
 ---
 

@@ -1,16 +1,16 @@
-# spawn a swarm
+# Spawn a swarm
 
-MiroShark. feed it a document, watch hundreds of agents argue their way to consensus.
+MiroShark. Feed it a document, watch hundreds of agents argue their way to consensus.
 
 ---
 
-## what it is
+## What it is
 
-MiroShark is a multi-agent simulation engine built on MiroFish/OASIS from CAMEL-AI. you upload a document — press release, policy draft, financial report, even a novel — and it generates hundreds of AI agents with unique personalities, memories, and social connections. they interact on simulated social platforms (Twitter-like, Reddit-like), forming opinions, arguing, persuading, shifting positions. a ReportAgent analyzes what emerged.
+MiroShark is a multi-agent simulation engine built on MiroFish/OASIS from CAMEL-AI. You upload a document — press release, policy draft, financial report, even a novel — and it generates hundreds of AI agents with unique personalities, memories, and social connections. They interact on simulated social platforms (Twitter-like, Reddit-like), forming opinions, arguing, persuading, shifting positions. A ReportAgent analyzes what emerged.
 
-this isn't agent orchestration for completing tasks. this is swarm intelligence: emergent behavior from many simple agents following local rules.
+This isn't agent orchestration for completing tasks. This is swarm intelligence: emergent behavior from many simple agents following local rules.
 
-## setup
+## Setup
 
 ```bash
 git clone https://github.com/aaronjmars/MiroShark.git
@@ -26,7 +26,7 @@ docker run -d --name neo4j \
 cp .env.example .env
 ```
 
-edit `.env` with your LLM provider:
+Edit `.env` with your LLM provider:
 
 ```bash
 # cloud mode (no GPU needed, any 4GB RAM machine)
@@ -56,37 +56,37 @@ npm install
 npm run dev
 ```
 
-## what to try
+## What to try
 
-**round 1: feed it something you care about.** a press release from your company. a controversial policy proposal. a product announcement. describe your prediction question in natural language. watch the simulation run.
+**Round 1: Feed it something you care about.** A press release from your company. A controversial policy proposal. A product announcement. Describe your prediction question in natural language. Watch the simulation run.
 
-**round 2: observe emergence.** as agents interact, coalitions form. dominant narratives emerge. minority positions get amplified or suppressed. none of this was programmed — it grows from agent-to-agent interaction. watch for:
-- which agents become influential and why
-- how opinions cluster and polarize
-- what narratives gain traction vs. die out
-- whether the emergent consensus matches your intuition
+**Round 2: Observe emergence.** As agents interact, coalitions form. Dominant narratives emerge. Minority positions get amplified or suppressed. None of this was programmed — it grows from agent-to-agent interaction. Watch for:
+- Which agents become influential and why
+- How opinions cluster and polarize
+- What narratives gain traction vs. die out
+- Whether the emergent consensus matches your intuition
 
-**round 3: interrogate the agents.** after the simulation, you can chat with any individual agent. ask them *why* they hold their position. ask what changed their mind. ask about their interactions. this is the diagnostic tool for understanding emergent behavior.
+**Round 3: Interrogate the agents.** After the simulation, you can chat with any individual agent. Ask them *why* they hold their position. Ask what changed their mind. Ask about their interactions. This is the diagnostic tool for understanding emergent behavior.
 
-**round 4: inject a variable.** run the same seed document but change one parameter — add a new piece of information mid-simulation, or modify an agent's initial stance. watch how the butterfly effect propagates through the swarm.
+**Round 4: Inject a variable.** Run the same seed document but change one parameter — add a new piece of information mid-simulation, or modify an agent's initial stance. Watch how the butterfly effect propagates through the swarm.
 
-## what this teaches about orchestration
+## What this teaches about orchestration
 
-MiroShark is the extreme case of the swarm pattern. thousands of agents, no supervisor, emergent outcomes. it reveals:
+MiroShark is the extreme case of the swarm pattern. Thousands of agents, no supervisor, emergent outcomes. It reveals:
 
-- **emergence is real.** complex behavior comes from simple local rules. you don't need to program the outcome — you need to design the interaction rules.
-- **convergence isn't guaranteed.** sometimes the swarm polarizes instead of converging. sometimes a loud minority dominates. these are failure modes of all swarm architectures, not just simulation.
-- **auditability is hard.** you can interrogate individual agents, but explaining *why the swarm as a whole* reached a conclusion requires different tools than explaining why a single agent did.
-- **scale changes the dynamics.** 10 agents behave differently than 100, which behave differently than 1,000. coordination patterns that work at one scale break at another.
+- **Emergence is real.** Complex behavior comes from simple local rules. You don't need to program the outcome — you need to design the interaction rules.
+- **Convergence isn't guaranteed.** Sometimes the swarm polarizes instead of converging. Sometimes a loud minority dominates. These are failure modes of all swarm architectures, not just simulation.
+- **Auditability is hard.** You can interrogate individual agents, but explaining *why the swarm as a whole* reached a conclusion requires different tools than explaining why a single agent did.
+- **Scale changes the dynamics.** 10 agents behave differently than 100, which behave differently than 1,000. Coordination patterns that work at one scale break at another.
 
-## what to notice
+## What to notice
 
-- did the swarm produce insights you wouldn't have gotten from a single agent?
-- how much of the emergent behavior is signal vs. noise?
-- could you have predicted the outcome from the individual agent configurations?
-- what happens when one agent is confidently wrong — does the swarm correct it or amplify it?
+- Did the swarm produce insights you wouldn't have gotten from a single agent?
+- How much of the emergent behavior is signal vs. noise?
+- Could you have predicted the outcome from the individual agent configurations?
+- What happens when one agent is confidently wrong — does the swarm correct it or amplify it?
 
-that last question is the core tension of swarm intelligence: collective wisdom vs. collective hallucination.
+That last question is the core tension of swarm intelligence: collective wisdom vs. collective hallucination.
 
 ---
 

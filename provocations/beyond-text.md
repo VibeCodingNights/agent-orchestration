@@ -1,64 +1,64 @@
-# beyond text
+# Beyond text
 
-what if agents could share thoughts instead of words?
-
----
-
-every agent handoff today goes through text. internal representation → tokens → parse → internal representation. it's the lowest-bandwidth channel available. the model's "thought" exists as a high-dimensional activation pattern — projecting it into tokens throws away enormous amounts of information.
-
-but what if you could skip the text?
+What if agents could share thoughts instead of words?
 
 ---
 
-## cache-to-cache (C2C)
+Every agent handoff today goes through text. Internal representation → tokens → parse → internal representation. It's the lowest-bandwidth channel available. The model's "thought" exists as a high-dimensional activation pattern — projecting it into tokens throws away enormous amounts of information.
 
-a paper from october 2025, updated march 2026. the idea: a neural network projects and fuses one model's KV-cache with another model's KV-cache. no tokenization step. no parsing step. direct semantic transfer.
+But what if you could skip the text?
 
-the results:
+---
+
+## Cache-to-Cache (C2C)
+
+A paper from October 2025, updated March 2026. The idea: a neural network projects and fuses one model's KV-cache with another model's KV-cache. No tokenization step. No parsing step. Direct semantic transfer.
+
+The results:
 - 6-14% higher average accuracy than individual models
 - 3-5% better than text communication between the same models
 - 2.5x speedup in latency
-- works across different model families and different model sizes
+- Works across different model families and different model sizes
 
-the mechanism: a learnable gating mechanism selects which target layers benefit from cache communication. a fuser architecture keeps the receiver's original KV-cache and blends it with the sharer's projected cache. the complementary contextual understanding from a heterogeneous sharer is real — identical self-communication also outperforms single models, but cross-model communication performs better.
+The mechanism: a learnable gating mechanism selects which target layers benefit from cache communication. A fuser architecture keeps the receiver's original KV-cache and blends it with the sharer's projected cache. The complementary contextual understanding from a heterogeneous sharer is real — identical self-communication also outperforms single models, but cross-model communication performs better.
 
-the implication: text is not just a slow channel. it's a *lossy* channel. models talking through cache projections communicate richer information than models talking through text, and the difference shows up in task performance.
-
----
-
-## the coprocessor architecture
-
-a separate line of work: augment a frozen LLM with an offline coprocessor that operates on its KV-cache. the coprocessor adds latent embeddings designed to improve subsequent decoding. trained using the language modeling loss from the decoder on standard pretraining data, while keeping the decoder frozen.
-
-this is essentially system 1 / system 2 for language models. the base model does fast association (system 1). the coprocessor does slow deliberation (system 2). they communicate through cache, not text. the coprocessor can operate offline and asynchronously — the language model works normally if the coprocessor is unavailable.
-
-neuroscience evidence points to partially distinct substrates for deliberative control and habitual responses. the coprocessor architecture mirrors this separation.
+The implication: text is not just a slow channel. It's a *lossy* channel. Models talking through cache projections communicate richer information than models talking through text, and the difference shows up in task performance.
 
 ---
 
-## what this means for orchestration
+## The coprocessor architecture
 
-current agent orchestration is built on the assumption that text is the communication medium. MCP sends JSON. A2A sends structured messages. claude-peers-mcp sends natural language. all text.
+A separate line of work: augment a frozen LLM with an offline coprocessor that operates on its KV-cache. The coprocessor adds latent embeddings designed to improve subsequent decoding. Trained using the language modeling loss from the decoder on standard pretraining data, while keeping the decoder frozen.
 
-if agents could share KV-caches instead:
-- the 30% coordination tax drops (no tokenization/parsing overhead)
-- information loss at handoffs decreases (richer representations)
-- agents could share intermediate reasoning states, not just conclusions
-- new failure modes emerge (cache corruption, representation drift, unauditable communication)
+This is essentially System 1 / System 2 for language models. The base model does fast association (System 1). The coprocessor does slow deliberation (System 2). They communicate through cache, not text. The coprocessor can operate offline and asynchronously — the language model works normally if the coprocessor is unavailable.
 
-the tradeoff is stark: higher bandwidth and accuracy, lower auditability and interpretability. when your agents communicate in a language you can't read, debugging gets harder. governance gets harder. trust gets harder.
+Neuroscience evidence points to partially distinct substrates for deliberative control and habitual responses. The coprocessor architecture mirrors this separation.
 
 ---
 
-## the question for tonight
+## What this means for orchestration
 
-is text the right medium for agent coordination?
+Current agent orchestration is built on the assumption that text is the communication medium. MCP sends JSON. A2A sends structured messages. claude-peers-mcp sends natural language. All text.
 
-for coding agents building your production system — where you need to audit every decision — probably yes. the overhead is worth the transparency.
+If agents could share KV-caches instead:
+- The 30% coordination tax drops (no tokenization/parsing overhead)
+- Information loss at handoffs decreases (richer representations)
+- Agents could share intermediate reasoning states, not just conclusions
+- New failure modes emerge (cache corruption, representation drift, unauditable communication)
 
-for a swarm of thousands forming consensus about public reaction to a policy — where emergence is the point — maybe not. the information loss from text might be hiding signal you need.
+The tradeoff is stark: higher bandwidth and accuracy, lower auditability and interpretability. When your agents communicate in a language you can't read, debugging gets harder. Governance gets harder. Trust gets harder.
 
-the frontier isn't "better text protocols." it's "should we use text at all?"
+---
+
+## The question for tonight
+
+Is text the right medium for agent coordination?
+
+For coding agents building your production system — where you need to audit every decision — probably yes. The overhead is worth the transparency.
+
+For a swarm of thousands forming consensus about public reaction to a policy — where emergence is the point — maybe not. The information loss from text might be hiding signal you need.
+
+The frontier isn't "better text protocols." It's "should we use text at all?"
 
 ---
 
